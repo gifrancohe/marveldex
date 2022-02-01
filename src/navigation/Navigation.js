@@ -31,8 +31,9 @@ export default function Navigation() {
         options={{
           tabBarLabel: "",
           tabBarIcon: () => renderMarvelIcon(),
-          headerTitle: "Marveldex",
+          headerTitle: "",
           headerTitleAlign: "center",
+          headerTransparent: true,
         }}
       />
       <Tab.Screen

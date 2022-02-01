@@ -5,8 +5,7 @@ import CharacterList from "../components/CharacterList";
 
 export default function Marvel() {
   const [characters, setCharacters] = useState([]);
-  console.log("characters -->", characters);
-
+  const [nextUrl, setNextUrl] = useState(null);
   useEffect(() => {
     (async () => {
       await loadCharacters();
@@ -15,7 +14,9 @@ export default function Marvel() {
 
   const loadCharacters = async () => {
     try {
-      const response = await getCharactersApi();
+      const response = await getCharactersApi(nextUrl);
+      setNextUrl(response.next);
+
       const charactersArray = [];
       for await (const character of response.results) {
         const characterDetails = await getCharactersDetailsApi(character.url);
@@ -36,7 +37,11 @@ export default function Marvel() {
 
   return (
     <SafeAreaView>
-      <CharacterList characters={characters} />
+      <CharacterList
+        characters={characters}
+        loadCharacters={loadCharacters}
+        isNext={nextUrl}
+      />
     </SafeAreaView>
   );
 }
