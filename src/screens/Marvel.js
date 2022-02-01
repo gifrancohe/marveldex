@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { SafeAreaView } from "react-native";
 import { getCharactersApi, getCharactersDetailsApi } from "../api/marvel";
+import CharacterList from "../components/CharacterList";
 
 export default function Marvel() {
   const [characters, setCharacters] = useState([]);
@@ -34,8 +35,8 @@ export default function Marvel() {
   };
 
   return (
-    <View>
-      <Text>Estamos en marvel</Text>
-    </View>
+    <SafeAreaView>
+      <CharacterList characters={characters} />
+    </SafeAreaView>
   );
 }
