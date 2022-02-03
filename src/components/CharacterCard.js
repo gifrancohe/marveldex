@@ -7,16 +7,19 @@ import {
 } from "react-native";
 import React from "react";
 import { capitalize } from "lodash";
+import { useNavigation } from "@react-navigation/native";
 import getColorByCharacterType from "../utils/getColorByCharacterType";
 
 export default function CharacterCard(props) {
   const { character } = props;
 
+  const navigation = useNavigation();
+
   const characterColor = getColorByCharacterType(character.type);
   const bgStyles = { backgroundColor: characterColor, ...styles.bgStyles };
 
   const gotToCharacter = () => {
-    console.log(`Vamos al pokemon: ${character.name}`);
+    navigation.navigate("Character", { id: character.name });
   };
 
   return (
