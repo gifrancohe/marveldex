@@ -7,7 +7,14 @@ const Stack = createNativeStackNavigator();
 export default function CharacterNavigation() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Character" component={Character} />
+      <Stack.Screen
+        name="Character"
+        component={Character}
+        options={{
+          title: "",
+          headerTransparent: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }

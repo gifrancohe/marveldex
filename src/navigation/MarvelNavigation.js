@@ -14,20 +14,17 @@ export default function MarvelNavigation() {
         options={{
           title: "",
           headerTransparent: true,
-          headerShown: true,
-          headerTransparent: true,
-          headerShadowVisible: false,
+          headerShown: false,
         }}
       />
       <Stack.Screen
         name="Character"
         component={Character}
         options={{
-          title: "Personaje",
-          headerTransparent: false,
+          title: "",
+          headerTransparent: true,
           headerShown: true,
           headerTransparent: false,
-          headerShadowVisible: true,
         }}
       />
     </Stack.Navigator>

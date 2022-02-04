@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
+import { ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { getCharactersDetailsByIdApi } from "../api/marvel";
+import Header from "../components/character/Header";
 
 export default function Character(props) {
   const {
@@ -9,8 +10,6 @@ export default function Character(props) {
   } = props;
 
   const [character, setCharacter] = useState(null);
-
-  console.log(params.id);
 
   useEffect(() => {
     (async () => {
@@ -27,8 +26,13 @@ export default function Character(props) {
   if (!character) return null;
 
   return (
-    <View>
-      <Text>Character</Text>
-    </View>
+    <ScrollView>
+      <Header
+        name={character.name}
+        order={character.order}
+        image={character.sprites.other.home.front_default}
+        type={character.types[0].type.name}
+      />
+    </ScrollView>
   );
 }

@@ -26,7 +26,7 @@ export default function Marvel() {
           name: characterDetails.name,
           type: characterDetails.types[0].type.name,
           order: characterDetails.order,
-          image: characterDetails.sprites.front_default,
+          image: characterDetails.sprites.other.home.front_default,
         });
       }
       setCharacters([...characters, ...charactersArray]);
